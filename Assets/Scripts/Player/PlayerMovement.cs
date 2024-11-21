@@ -346,7 +346,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            if(isGrounded || jumpCount < jumpCountMax) //prob don't need isGrounded
+            if(jumpCount < jumpCountMax) //prob don't need isGrounded
             {
                 if(!rightWallRun && !leftWallRun)
                 {

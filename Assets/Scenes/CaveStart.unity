@@ -150,7 +150,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44422559}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1082,7 +1082,7 @@ PrefabInstance:
     - target: {fileID: -2571118854743697038, guid: 06b72f05347263641a512a8b029cac2c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b0b887c53a0c56d4ebc4968e6dba138a, type: 2}
+      objectReference: {fileID: 2100000, guid: 2b10dce114e59d64b8fea01038394608, type: 2}
     - target: {fileID: 919132149155446097, guid: 06b72f05347263641a512a8b029cac2c, type: 3}
       propertyPath: m_Name
       value: Cave Start Map
@@ -1259,6 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ade3cb8d07910e44a89766a334258b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToChangeTo: Cave Scene 2
 --- !u!1 &1043877011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1693,8 +1694,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speech: {fileID: 1849018369}
-  speechStart: 6
+  speechStart: 7
   speechLength: 3
+  triggerOnceEnable: 1
 --- !u!1 &1477152078
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,8 +2243,9 @@ MonoBehaviour:
   - Ah, great pick me up over here.
   - Alright, you remember anything?
   - No?
-  - Ok, basically your team of excavators hit a secret lab
+  - Ok, basically your team of excavators hit a secret lab or something like that.
   - I'm a drone from the lab sent out to scout the area and I found you.
+  - To cross this chasm you gotta double jump.
   - Wait, you see that giant robot over there? That symbol. That's the EPO.
   - They moved in while you were out. They're trying to cover this all up, and secure
     the tech for themselves.
@@ -5668,7 +5671,7 @@ MonoBehaviour:
   rightWallRun: 0
   disableGravity: 0
   jumpCount: 0
-  jumpCountMax: 1
+  jumpCountMax: -1
   mantleSpringTimer: 0
   mantleSpringTimerMax: 0.2
   mantleSpringForwardForce: 15
