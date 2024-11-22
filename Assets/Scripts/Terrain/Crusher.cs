@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Crusher : MonoBehaviour
 {
+    [SerializeField]
+    int damage = 100;
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            //other.GetComponent<PlayerHealth>().TakeDamage();
+            other.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 }
