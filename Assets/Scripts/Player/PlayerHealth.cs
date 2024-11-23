@@ -7,6 +7,8 @@ public class PlayerHealth : MonoBehaviour
 {
     int health = 100;
     PlayerMovement playerMovement;
+    [SerializeField]
+    GameObject deathScreen;
 
     void Awake()
     {
@@ -26,7 +28,8 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         playerMovement.enabled = false;
-        Debug.Log("DEAD");
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        deathScreen.SetActive(true);
         Invoke("Respawn", 3);
     }
 

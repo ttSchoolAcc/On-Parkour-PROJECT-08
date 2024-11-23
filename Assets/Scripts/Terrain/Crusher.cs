@@ -6,12 +6,29 @@ using UnityEngine;
 public class Crusher : MonoBehaviour
 {
     [SerializeField]
-    int damage = 100;
-    void OnTriggerEnter(Collider other)
+    Animator anim;
+
+    [SerializeField]
+    int startDelay;
+    [SerializeField]
+    int waitTime;
+
+    void Start()
     {
-        if(other.gameObject.tag == "Player")
+        Invoke("StartCrush", startDelay);
+    }
+
+    void StartCrush()
+    {
+        StartCoroutine(CrushCoroutine());
+    }
+
+    IEnumerator CrushCoroutine()
+    {
+        while(true)
         {
-            other.GetComponent<PlayerHealth>().TakeDamage(damage);
+            anim.Play("Crusher");
+            yield return new WaitForSeconds(waitTime);
         }
     }
 }
