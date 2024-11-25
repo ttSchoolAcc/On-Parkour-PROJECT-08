@@ -15,7 +15,10 @@ public class Crusher : MonoBehaviour
 
     void Start()
     {
-        Invoke("StartCrush", startDelay);
+        if(startDelay >= 0)
+        {
+            Invoke("StartCrush", startDelay);
+        }
     }
 
     void StartCrush()

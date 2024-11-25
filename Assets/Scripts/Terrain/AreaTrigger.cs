@@ -10,6 +10,8 @@ public class AreaTrigger : MonoBehaviour
     [SerializeField]
     bool triggerOnceEnable;
     bool triggerOnce;
+    [SerializeField]
+    Animator anim;
 
     void OnTriggerEnter(Collider other)
     {
@@ -23,6 +25,11 @@ public class AreaTrigger : MonoBehaviour
             if(triggerOnceEnable)
             {
                 triggerOnce = true;
+            }
+
+            if(anim != null)
+            {
+                anim.Play("Mech Walk");
             }
         }
     }

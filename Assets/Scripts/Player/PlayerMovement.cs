@@ -128,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
         FOVSpeed();
         Dive();
         CrouchNSlide();
-        Lunge();
+        //Lunge();
         //Wallrun();
     }
 
@@ -487,15 +487,19 @@ public class PlayerMovement : MonoBehaviour
         mantleOnce = true;
     }
 
+    public void WallrunStart()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+    }
+
     public void WallrunLeft()
     {
         if(leftWallRun && !isGrounded)
         {
             if(!isGrounded)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                //disableGravity = true;
                 gravityForce = 0.4f;
+                //rb.AddForce(transform.forward * 1, ForceMode.Impulse);
                 anim.SetBool("wallrunLeft", true);
             }
         }
@@ -516,9 +520,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if(!isGrounded)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                //disableGravity = true;
                 gravityForce = 0.4f;
+                //rb.AddForce(transform.forward * 1, ForceMode.Impulse);
                 anim.SetBool("wallrunRight", true);
             }
         }
@@ -711,23 +714,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Lunge()
-    {
-        lungeSlider.value = lungeCoolDown / lungeCoolDownMax;
-        if(lungeCoolDown >= lungeCoolDownMax)
-        {
-            if(Input.GetMouseButtonDown(1) && isGrounded)
-            {
-                anim.SetTrigger("lunge");
-                rb.AddForce(transform.forward * lungeForce, ForceMode.Impulse);
-                lungeCoolDown = 0;
-            }
-        }
-        else
-        {
-            lungeCoolDown += Time.deltaTime;
-        }
-    }
+    // void Lunge()
+    // {
+    //     lungeSlider.value = lungeCoolDown / lungeCoolDownMax;
+    //     if(lungeCoolDown >= lungeCoolDownMax)
+    //     {
+    //         if(Input.GetMouseButtonDown(1) && isGrounded)
+    //         {
+    //             anim.SetTrigger("lunge");
+    //             rb.AddForce(transform.forward * lungeForce, ForceMode.Impulse);
+    //             lungeCoolDown = 0;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         lungeCoolDown += Time.deltaTime;
+    //     }
+    // }
 
     public void LungeEnd() //CALLED BY ANIM
     {
