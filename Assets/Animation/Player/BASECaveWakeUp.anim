@@ -906,7 +906,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 6.766667
+  - time: 6.733333
     functionName: StartWakeUpEnd
     data: 
     objectReferenceParameter: {fileID: 0}
