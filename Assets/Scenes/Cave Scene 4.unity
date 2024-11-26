@@ -530,7 +530,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1524693097657611155, guid: af77fada5e672454f9189d39b2845c66, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1524693097657611155, guid: af77fada5e672454f9189d39b2845c66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -702,7 +702,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4755409719391066675, guid: 6dccd570b6c198b4b86f96711068907b, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4755409719391066675, guid: 6dccd570b6c198b4b86f96711068907b, type: 3}
       propertyPath: m_LocalScale.x
@@ -1022,7 +1022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 879180490435860257, guid: 60d813576c2108d47b3cc2f786b87cc7, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 879180490435860257, guid: 60d813576c2108d47b3cc2f786b87cc7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2196,7 +2196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6286059908571415868, guid: 839df17610fd0a94f94c6bd8c2986366, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6286059908571415868, guid: 839df17610fd0a94f94c6bd8c2986366, type: 3}
       propertyPath: m_LocalScale.y
@@ -2594,7 +2594,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624011652}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.3262401, y: 1, z: 1.7852936}
@@ -2607,7 +2607,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624011652}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.99999994, z: 1}
@@ -2750,7 +2750,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &672249702
 PrefabInstance:
@@ -3402,7 +3402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &795394354
 Transform:
   m_ObjectHideFlags: 0
@@ -4190,7 +4190,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1524693097657611155, guid: af77fada5e672454f9189d39b2845c66, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1524693097657611155, guid: af77fada5e672454f9189d39b2845c66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6846,7 +6846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1560886406
 Transform:
   m_ObjectHideFlags: 0
@@ -6950,7 +6950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1569410768
 Transform:
   m_ObjectHideFlags: 0
@@ -8061,7 +8061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1801349403
 Transform:
   m_ObjectHideFlags: 0
@@ -8598,7 +8598,7 @@ MonoBehaviour:
   textBoxComplex: {fileID: 1973368714}
   texts:
   - We need to ascend to get out of this mine.
-  - Eh, well you can crouch and slide to help get past.
+  - Also there seems to be a lot of spike ahead.
 --- !u!1 &1850480601
 GameObject:
   m_ObjectHideFlags: 0
@@ -9719,7 +9719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 970572336742925062, guid: 019660bcd4841364e85fe7eb375b0c49, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 970572336742925062, guid: 019660bcd4841364e85fe7eb375b0c49, type: 3}
       propertyPath: m_LocalPosition.x
