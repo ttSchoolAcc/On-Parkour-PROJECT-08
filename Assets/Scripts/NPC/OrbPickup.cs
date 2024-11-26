@@ -12,7 +12,7 @@ public class OrbPickup : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             orbSpeech.StartChat(2, 4);
-            other.GetComponent<PlayerMovement>().jumpCountMax = 2;
+            other.GetComponent<PlayerMovement>().jumpCountMax = 1;
 
             Destroy(gameObject);
         }
