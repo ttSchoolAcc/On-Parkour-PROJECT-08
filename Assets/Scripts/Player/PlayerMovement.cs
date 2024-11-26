@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayerMask;
 
     public float mouseSpeedVariable;
+    public float mouseSensMult;
     public float addedVertRot;
 
     public PlayerWallCheck playerWallCheck;
@@ -109,12 +110,16 @@ public class PlayerMovement : MonoBehaviour
 
     float previousYVel;
 
+    [SerializeField]
+    Slider mouseSlider;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         storedMoveSpeed = moveSpeed;
         lungeCoolDown = lungeCoolDownMax;
         storedGravityForce = gravityForce;
+        ChangeMouseSens();
     }
 
     void Update()
@@ -125,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         RunCheck();
         MantleSpring();
         InputExtensions();
-        FOVSpeed();
+        //FOVSpeed(); //Disabled bc it's misbehaving
         Dive();
         CrouchNSlide();
         //Lunge();
@@ -317,8 +322,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!stopRotation)
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSens * mouseSensMult * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSens * mouseSensMult * Time.deltaTime;
 
             xRotation -= mouseY;
             //xRotation = -mouseY;
@@ -752,5 +757,10 @@ public class PlayerMovement : MonoBehaviour
     public void AnimationStartMovement()
     {
         stopMovement = false;
+    }
+
+    public void ChangeMouseSens()
+    {
+        mouseSensMult = mouseSlider.value;
     }
 }

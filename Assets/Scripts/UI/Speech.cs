@@ -14,6 +14,7 @@ public class Speech : MonoBehaviour
 
     public void StartChat(int selectedTextIndex, int conversationRange)
     {
+        StopAllCoroutines();
         textBoxComplex.SetActive(true);
         currText = texts[selectedTextIndex];
         text.text = currText;
