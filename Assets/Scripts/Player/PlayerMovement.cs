@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayerMask;
 
     public float mouseSpeedVariable;
-    public float mouseSensMult;
+    public static float mouseSensMult = 1;
     public float addedVertRot;
 
     public PlayerWallCheck playerWallCheck;
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         storedMoveSpeed = moveSpeed;
         lungeCoolDown = lungeCoolDownMax;
         storedGravityForce = gravityForce;
-        ChangeMouseSens();
+        //ChangeMouseSens();
     }
 
     void Update()
@@ -128,10 +128,10 @@ public class PlayerMovement : MonoBehaviour
         GroundCheck();
         Mantling();
         RunCheck();
-        MantleSpring();
         InputExtensions();
         //FOVSpeed(); //Disabled bc it's misbehaving
-        Dive();
+        //MantleSpring();
+        //Dive();
         CrouchNSlide();
         //Lunge();
         //Wallrun();
