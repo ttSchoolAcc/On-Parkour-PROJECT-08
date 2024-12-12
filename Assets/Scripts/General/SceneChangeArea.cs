@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeArea : MonoBehaviour
 {
+
+
+    [SerializeField]
+    string sceneToChangeTo;
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Cave Scene 2");
+            SceneManager.LoadScene(sceneToChangeTo);
         }
     }
 }

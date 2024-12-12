@@ -9,9 +9,41 @@ public class PlayerWallrunDetection : MonoBehaviour
     public PlayerMovement playerMovement;
     public LayerMask layerMask;
 
+    // void OnTriggerStay(Collider other) //Ontrigger enter results in weird corner interactions
+    // {
+    //     //if(other.tag == "Ground")
+    //     if((layerMask & (1 << other.gameObject.layer)) != 0)
+    //     {
+    //         if(leftOrRight == 0)
+    //         {
+    //             playerMovement.leftWallRun = true;
+    //             playerMovement.WallrunLeft();
+    //         }
+    //         else if(leftOrRight == 1)
+    //         {
+    //             playerMovement.rightWallRun = true;
+    //             playerMovement.WallrunRight();
+    //         }
+    //     }
+    // }
+
     void OnTriggerEnter(Collider other)
     {
-        //if(other.tag == "Ground")
+        if((layerMask & (1 << other.gameObject.layer)) != 0)
+        {
+            if(leftOrRight == 0)
+            {
+                playerMovement.WallrunStart();
+            }
+            else if(leftOrRight == 1)
+            {
+                playerMovement.WallrunStart();
+            }
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
         if((layerMask & (1 << other.gameObject.layer)) != 0)
         {
             if(leftOrRight == 0)
@@ -25,10 +57,8 @@ public class PlayerWallrunDetection : MonoBehaviour
                 playerMovement.WallrunRight();
             }
         }
-    }
+        
 
-    void OnTriggerStay(Collider other)
-    {
         Vector3 wallrunForceDir = new Vector3(0, 0, 0);
         if(leftOrRight == 0)
         {

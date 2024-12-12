@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 5f73dd8d0dc843944a810fd01afb0c8d
+  - enabled: 1
     path: Assets/Scenes/CaveStart.unity
     guid: d2e3bbf869c326849a23f2471c769953
   - enabled: 1
     path: Assets/Scenes/Cave Scene 2.unity
     guid: 45510f955e5f005488ca09bce7f22a19
+  - enabled: 1
+    path: Assets/Scenes/Cave Scene 3.unity
+    guid: f9ba60b300ddb9942ab893774d7bfece
+  - enabled: 1
+    path: Assets/Scenes/Cave Scene 4.unity
+    guid: 12e3bcee334b85d48a23ef570a543215
+  - enabled: 1
+    path: Assets/Scenes/Cave Scene 5.unity
+    guid: dad461bc64391df4e9878d16533e09db
   m_configObjects: {}

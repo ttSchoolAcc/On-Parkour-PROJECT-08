@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayerMask;
 
     public float mouseSpeedVariable;
+    public static float mouseSensMult = 1;
     public float addedVertRot;
 
     public PlayerWallCheck playerWallCheck;
@@ -109,12 +110,16 @@ public class PlayerMovement : MonoBehaviour
 
     float previousYVel;
 
+    [SerializeField]
+    Slider mouseSlider;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         storedMoveSpeed = moveSpeed;
         lungeCoolDown = lungeCoolDownMax;
         storedGravityForce = gravityForce;
+        //ChangeMouseSens();
     }
 
     void Update()
@@ -123,12 +128,12 @@ public class PlayerMovement : MonoBehaviour
         GroundCheck();
         Mantling();
         RunCheck();
-        MantleSpring();
         InputExtensions();
-        FOVSpeed();
-        Dive();
+        //FOVSpeed(); //Disabled bc it's misbehaving
+        //MantleSpring();
+        //Dive();
         CrouchNSlide();
-        Lunge();
+        //Lunge();
         //Wallrun();
     }
 
@@ -317,8 +322,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!stopRotation)
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSens * mouseSensMult * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSens * mouseSensMult * Time.deltaTime;
 
             xRotation -= mouseY;
             //xRotation = -mouseY;
@@ -346,7 +351,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            if(isGrounded || jumpCount < jumpCountMax) //prob don't need isGrounded
+            if(jumpCount < jumpCountMax) //prob don't need isGrounded
             {
                 if(!rightWallRun && !leftWallRun)
                 {
@@ -487,15 +492,19 @@ public class PlayerMovement : MonoBehaviour
         mantleOnce = true;
     }
 
+    public void WallrunStart()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+    }
+
     public void WallrunLeft()
     {
         if(leftWallRun && !isGrounded)
         {
             if(!isGrounded)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                //disableGravity = true;
                 gravityForce = 0.4f;
+                //rb.AddForce(transform.forward * 1, ForceMode.Impulse);
                 anim.SetBool("wallrunLeft", true);
             }
         }
@@ -516,9 +525,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if(!isGrounded)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                //disableGravity = true;
                 gravityForce = 0.4f;
+                //rb.AddForce(transform.forward * 1, ForceMode.Impulse);
                 anim.SetBool("wallrunRight", true);
             }
         }
@@ -711,23 +719,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Lunge()
-    {
-        lungeSlider.value = lungeCoolDown / lungeCoolDownMax;
-        if(lungeCoolDown >= lungeCoolDownMax)
-        {
-            if(Input.GetMouseButtonDown(1) && isGrounded)
-            {
-                anim.SetTrigger("lunge");
-                rb.AddForce(transform.forward * lungeForce, ForceMode.Impulse);
-                lungeCoolDown = 0;
-            }
-        }
-        else
-        {
-            lungeCoolDown += Time.deltaTime;
-        }
-    }
+    // void Lunge()
+    // {
+    //     lungeSlider.value = lungeCoolDown / lungeCoolDownMax;
+    //     if(lungeCoolDown >= lungeCoolDownMax)
+    //     {
+    //         if(Input.GetMouseButtonDown(1) && isGrounded)
+    //         {
+    //             anim.SetTrigger("lunge");
+    //             rb.AddForce(transform.forward * lungeForce, ForceMode.Impulse);
+    //             lungeCoolDown = 0;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         lungeCoolDown += Time.deltaTime;
+    //     }
+    // }
 
     public void LungeEnd() //CALLED BY ANIM
     {
@@ -749,5 +757,10 @@ public class PlayerMovement : MonoBehaviour
     public void AnimationStartMovement()
     {
         stopMovement = false;
+    }
+
+    public void ChangeMouseSens()
+    {
+        mouseSensMult = mouseSlider.value;
     }
 }
